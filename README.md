@@ -74,10 +74,10 @@ map_editor/         -> for Presentation (Win64, Linux-x64, MacOS-x64, MacOS-arm6
 engine/             -> to run the game (Win64, Linux-x64)  
 quake-src/          -> the game source code  
 quake/              -> the game files  
-guides/             -> helpful resources from each domain to help you during your modding journey :D
-    gameplay/       -> you'll learn Gameplay Programming
-    presentation/   -> you'll learn Mapping
-    story/          -> you'll learn how to make Assets
+guides/             -> helpful resources from each domain to help you during your modding journey :D  
+    gameplay/       -> you'll learn Gameplay Programming  
+    presentation/   -> you'll learn Mapping  
+    story/          -> you'll learn how to make Assets  
 
 **Choose a domain compatible with your machine. Linux64 and Windows64 have the best tool coverage. macOS works but all tools are unsigned  -  follow `prerequisites/macos.md` carefully. Apple Silicon Macs need the arm64 TrenchBroom build; Ironwail is not provided for macOS.**
 
