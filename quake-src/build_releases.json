@@ -1,0 +1,90 @@
+{
+    "full": {
+        "is_full_release": true,
+        "base_dir": "id1",
+        "components": [
+            "docs",
+            "root",
+            "progs",
+            "config",
+            "sounds",
+            "music",
+            "models",
+            "brush_models",
+            "maps_e0",
+            "maps",
+            "maps_dm",
+            "gfx"
+        ]
+    },
+    "mod": {
+        "is_full_release": false,
+        "base_dir": "lq1",
+        "components": [
+            "docs",
+            "root",
+            "progs",
+            "sounds",
+            "music",
+            "models",
+            "brush_models",
+            "maps_e0",
+            "maps",
+            "maps_dm",
+            "gfx"
+        ]
+    },
+    "lite": {
+        "is_full_release": true,
+        "base_dir": "id1",
+        "components": [
+            "docs",
+            "root",
+            "progs",
+            "config",
+            "sounds",
+            "music",
+            "models",
+            "brush_models",
+            "maps_e0",
+            "gfx",
+            "lite_assets"
+        ]
+    },
+    "mod_lite": {
+        "is_full_release": false,
+        "base_dir": "lq1",
+        "components": [
+            "docs",
+            "root",
+            "progs",
+            "sounds",
+            "music",
+            "models",
+            "brush_models",
+            "maps_e0",
+            "gfx",
+            "lite_assets"
+        ]
+    },
+    "server": {
+        "is_full_release": false,
+        "base_dir": "",
+        "components": [
+            "docs",
+            "maps_server",
+            "maps_dm",
+            "progs_server",
+            "config_server"
+        ]
+    },
+    "dev": {
+        "is_full_release": false,
+        "base_dir": "",
+        "components": [
+            "docs",
+            "texture_wads",
+            "mapsrc"
+        ]
+    }
+}

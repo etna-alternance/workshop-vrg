@@ -1,0 +1,249 @@
+# Code written by ZungryWare
+
+# This script copies the necessary files to build the different releases. The
+# releases are specified in build_releases.json and they specify which
+# components to use. Components are specified in build_components.json and each
+# one is a big list of files that a release either wants all of or none of. Each
+# component also specifies whether each file should end up in pak0.pak,
+# pak1.pak, or just in the root folder without being packed. Files are copied to
+# the 'working' directory, compiled, then copied over to a folder in the
+# 'releases' directory. Before doing this, the script also compiles all of the
+# wad and bsp/lit files so they can be copied over.
+
+import subprocess
+import os
+import json
+import shutil
+import runpy
+import glob
+import argparse
+
+
+# Builds a single file
+def build_file(source_path, destination_path, source_if_missing):
+    os.makedirs(os.path.dirname(destination_path), exist_ok=True)
+    try:
+        shutil.copy(source_path, destination_path)
+    except Exception:
+        if len(source_if_missing):
+            shutil.copy(source_if_missing, destination_path)
+        else:
+            # No error for lit files since not all maps have them
+            if not destination_path.endswith(".lit"):
+                raise ValueError(f"!!! Error: Missing file with no substitute: {source_path}")
+
+
+# Gets a source and dest path from a file entry File. Entries can be a string
+# (where source and dest are the same) or a 2-long list (specifying the source
+# and dest, respectively)
+def extract_file(file):
+    if type(file) is list:
+        return file[0], file[1]
+    else:
+        return file, file
+
+
+# Builds a single component from build_components.json
+def build_component(component_data):
+    # Determine the source if missing
+    # This is the file to use as a substitute if the desired file is missing
+    if component_data['source_if_missing']:
+        source_if_missing = os.path.join('lq1/', component_data['source_if_missing'])
+    else:
+        source_if_missing = ""
+
+    base_dir = component_data['base_dir']
+
+    for file in component_data['files_pak0']:
+        file_source, file_dest = extract_file(file)
+        build_file(
+            os.path.join(base_dir, file_source),
+            os.path.join('working/pak0/', file_dest),
+            source_if_missing,
+        )
+    for file in component_data['files_pak1']:
+        file_source, file_dest = extract_file(file)
+        build_file(
+            os.path.join(base_dir, file_source),
+            os.path.join('working/pak1/', file_dest),
+            source_if_missing,
+        )
+    for file in component_data['files_unpacked']:
+        file_source, file_dest = extract_file(file)
+        build_file(
+            os.path.join(base_dir, file_source),
+            os.path.join('working/unpacked/', file_dest),
+            source_if_missing,
+        )
+
+
+# Build a single release from build_releases.json
+def build_release(name, data):
+    # Print
+    print(f"Building release {name}...")
+
+    # Clear working and set up working directories
+    clear_working()
+
+    # Create release directory
+    os.makedirs('releases', exist_ok=True)
+
+    # Pull out base directory
+    base_dir = data['base_dir']
+
+    # Build components in release
+    with open('build_components.json', 'r') as json_file:
+        components = json.load(json_file)
+        for component_name in data['components']:
+            print(f"Building component {component_name}...")
+            build_component(components[component_name])
+
+    # Copy stuff over to release folder
+    shutil.copytree('working/unpacked', os.path.join('releases', name, base_dir))
+
+    # Build and copy pak0
+    pak0_exists = len(os.listdir('working/pak0')) > 0
+    if pak0_exists:
+        os.chdir('working/pak0')
+        filepaths = glob.glob('*')
+        command = ['qpakman']
+        command.extend(filepaths)
+        command.extend(['-o', '../pak0.pak'])
+        print("Creating pak0.pak...")
+        try:
+            subprocess.run(
+                command,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                check=True,  # Fail on non-zero exit code
+            )
+        except subprocess.CalledProcessError as e:
+            print(f"!!! Command failed:\n{e.stdout.decode('utf-8')}")
+            raise e
+        os.chdir('../../')
+        shutil.copy('working/pak0.pak', os.path.join('releases', name, base_dir, 'pak0.pak'))
+
+    # Build and copy pak1
+    pak1_exists = len(os.listdir('working/pak1')) > 0
+    if pak1_exists:
+        os.chdir('working/pak1')
+        filepaths = glob.glob('*')
+        command = ['qpakman']
+        command.extend(filepaths)
+        command.extend(['-o', '../pak1.pak'])
+        print('Creating pak1.pak...')
+        try:
+            subprocess.run(
+                command,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                check=True  # Fail on non-zero exit code
+            )
+        except subprocess.CalledProcessError as e:
+            print(f"!!! Command failed:\n{e.stdout.decode('utf-8')}")
+            raise e
+        os.chdir('../../')
+        shutil.copy('working/pak1.pak', os.path.join('releases', name, base_dir, 'pak1.pak'))
+
+
+# Clears the working directory and sets up empty directories
+def clear_working():
+    # Remove working folder and its contents
+    shutil.rmtree('./working', ignore_errors=True)
+
+    # Create new empty directories
+    os.makedirs('working', exist_ok=True)
+    os.makedirs('working/pak0', exist_ok=True)
+    os.makedirs('working/pak1', exist_ok=True)
+    os.makedirs('working/unpacked', exist_ok=True)
+
+
+def compile_wad():
+    os.chdir('texture-wads')
+    runpy.run_path('./compile_wads.py', run_name="__build__")
+    os.chdir('../')
+
+
+def compile_bsp():
+    os.chdir('./lq1/maps')
+    runpy.run_path('./compile_maps.py', run_name="__build__")
+    os.chdir('../../')
+
+
+def compile_progs():
+    try:
+        print("Compiling progs.dat...")
+        subprocess.run(
+            ["fteqcc", "qcsrc/progs.src", "-D__LIBREQUAKE__", "-O3"],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            check=True,  # Fail on non-zero exit code
+        )
+
+        print("Compiling qwprogs.dat...")
+        subprocess.run(
+            ["fteqcc", "qcsrc/progs.src", "-D__LIBREQUAKE__", "-D__QW__", "-O3"],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            check=True,  # Fail on non-zero exit code
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"!!! Command failed:\n{e.stdout.decode('utf-8')}")
+        raise e
+
+
+def compile():
+    compile_progs()
+    compile_wad()
+    compile_bsp()
+
+
+def build():
+    # Delete existing releases
+    shutil.rmtree('./releases', ignore_errors=True)
+
+    # Build each release one by one
+    with open('build_releases.json', 'r') as json_file:
+        releases = json.load(json_file)
+        for key, value in releases.items():
+            build_release(key, value)
+
+
+def main():
+    # Parse command-line arguments
+    parser = argparse.ArgumentParser(description="Example script to demonstrate argparse usage.")
+    parser.add_argument('-c', '--compile', action='store_true', help="compile assets without building releases")
+    parser.add_argument('-w', '--compile-wads', action='store_true', help="just compile the texture wads")
+    parser.add_argument('-m', '--compile-maps', action='store_true', help="just compile the maps")
+    parser.add_argument('-p', '--compile-progs', action='store_true', help="just compile the progs.dat")
+    parser.add_argument('-b', '--build', action='store_true', help="build releases without recompiling")
+    args = parser.parse_args()
+
+    # Conflicting flags error
+    if args.build and (args.compile or args.compile_wads or args.compile_maps or args.compile_progs):
+        print("Incompatible flags. Use -h for help.")
+    # Compile specific flags
+    elif args.compile_wads or args.compile_maps or args.compile_progs:
+        if args.compile_wads:
+            compile_wad()
+        if args.compile_maps:
+            compile_bsp()
+        if args.compile_progs:
+            compile_progs()
+    # Compile all flag
+    elif args.compile:
+        compile()
+    # No compile flag
+    elif args.build:
+        build()
+    # Regular mode
+    else:
+        compile()
+        build()
+
+    # Confirmation
+    print("Build complete!")
+
+
+if __name__ == "__main__":
+    main()

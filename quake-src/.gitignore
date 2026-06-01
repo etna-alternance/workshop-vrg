@@ -1,0 +1,66 @@
+#↓ignored folders↓
+.stversions/
+.obsidian/
+.autosave/
+.vscode/
+autosave/
+lq1/screenshots/
+working/
+releases/
+venv/
+__pycache__/
+
+#↓ignored files↓
+docs/lqlogos/logomockup-wip2.ora
+docs/lqlogos/logomockup-wip2.xcf
+lq1/maps/.bmodelbspbak.7z
+lq1/config.cfg
+*/progs.dat
+*/qwprogs.dat
+lq1/gfx/pop.png
+lq-pl.png
+lq-pl.xcf
+.directory
+.nomedia
+*-crash.txt
+*.desktop
+*.sav
+*.bsp
+*.lit
+*.vis
+*.log
+*.lno
+*.texinfo
+*.wad
+*.pts
+*.prt
+*.png~
+*.ora~
+*.kra~
+*.texinfo.json
+*.cfg
+*.kate-swp
+*autosave.kra
+*-compile.map
+
+#↓custom file ignores↓
+*.id1
+*.ignore
+*.hide
+
+#↓custom folders ignores↓
+*-id1-
+*-ignore-
+*-hide-
+*-id1
+*-ignore
+*-hide
+
+
+#↓included files↓
+!lq1/default*.cfg
+!lq1/dev.cfg
+!lq1/style_*.cfg
+!lq1/zoom90.cfg
+!lq1/zoom120.cfg
+!lq1/server_config.cfg
