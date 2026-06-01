@@ -1,4 +1,8 @@
-# Presentation
+# To clone it
+
+git pull --recurse-submodules
+
+# Introduction
 
 Game development is hard. Mark my words: it's an unforgiving and ungrateful job.
 
@@ -81,4 +85,4 @@ guides/             -> helpful resources from each domain to help you during you
 
 **Choose a domain compatible with your machine. Linux64 and Windows64 have the best tool coverage. macOS works but all tools are unsigned  -  follow `prerequisites/macos.md` carefully. Apple Silicon Macs need the arm64 TrenchBroom build; Ironwail is not provided for macOS.**
 
-To start, begin with the README.md inside a domain folder. Good Luck! :D
+To begin, start with the README.md inside a domain folder. Good Luck! :D
