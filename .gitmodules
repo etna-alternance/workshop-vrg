@@ -1,0 +1,3 @@
+[submodule "quake-src"]
+	path = quake-src
+	url = git@github.com:lavenderdotpet/LibreQuake.git
