@@ -18,7 +18,7 @@ flowchart TD
     A["map_editor/TrenchBroom"] -->|save| B["yourmap.map"]
     B -->|QBSP + Light + Vis| C["yourmap.bsp"]
     C -->|copy to| D["quake/workshop/maps/"]
-    D -->|launch| E["engine/ironwail<br/>-game workshop +map yourmap"]
+    D -->|launch| E["engine/ironwail<br/>-basedir quake -game workshop +map yourmap"]
 ```
 
 ## Start here  -  your first map
@@ -29,7 +29,7 @@ Before anything else, get a working map in-game:
 2. Build one sealed room  -  6 brushes (floor, ceiling, 4 walls). Make it roughly 256x256x128 units.
 3. Place an `info_player_start` entity inside it.
 4. Place one `light` entity. Set key `light` = `200`.
-5. Compile with QBSP only, copy the `.bsp` to `quake/workshop/maps/`, launch: `engine/ironwail -game workshop +map yourmap`
+5. Compile with QBSP only, copy the `.bsp` to `quake/workshop/maps/`, launch: `engine/ironwail -basedir quake -game workshop +map yourmap`
 6. You're in. Now iterate.
 
 ## Learning path
@@ -207,7 +207,7 @@ Once configured, you can run any subset of the tools: run only QBSP for a quick 
 
 Our map in game!
 
-In TrenchBroom's compile dialog (**Run > Compile**), run only the QBSP task first. Once it finishes, copy the `.bsp` to `quake/workshop/maps/` and launch `engine/ironwail -game workshop +map yourmap`.
+In TrenchBroom's compile dialog (**Run > Compile**), run only the QBSP task first. Once it finishes, copy the `.bsp` to `quake/workshop/maps/` and launch `engine/ironwail -basedir quake -game workshop +map yourmap`.
 
 If you've been paying attention, you shouldn't be surprised to see that your map is a fully bright box with no shadowing. This is because we have only run QBSP on our.map. QBSP turns all our brushes into polygons which are nicely organized for Quake into a format called.bsp, in a process called [Binary Space Partitioning](http://en.wikipedia.org/wiki/Binary_space_partitioning).
 

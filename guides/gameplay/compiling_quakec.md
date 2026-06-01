@@ -30,7 +30,7 @@ fteqcc64.exe -src quake-src\qcsrc\
 
 After a successful compile, `progs.dat` is written directly to `quake/workshop/progs.dat`. No copy step needed.
 
-Launch: `engine/ironwail -game workshop`
+Launch: `engine/ironwail -basedir quake -game workshop`
 
 ## Compile errors
 

@@ -10,7 +10,7 @@
 flowchart TD
     A["quake-src/qcsrc/"] -->|edit .qc files| B["compiler/fteqcc64"]
     B -->|outputs| C["quake/workshop/progs.dat"]
-    C -->|launch| D["engine/ironwail -game workshop"]
+    C -->|launch| D["engine/ironwail -basedir quake -game workshop"]
 ```
 
 ## Start here  -  your first mod
@@ -19,7 +19,7 @@ Before anything else, make a change and see it in-game:
 
 1. Open `quake-src/qcsrc/weapons.qc`. Find `T_MissileTouch` and change the radius damage value in the `T_RadiusDamage` call  -  make it absurdly large or small.
 2. Compile: see `compiling_quakec.md` for your platform. Output goes directly to `quake/workshop/progs.dat`.
-3. Launch: `engine/ironwail -game workshop`
+3. Launch: `engine/ironwail -basedir quake -game workshop`
 4. Fire a rocket. You changed the game.
 
 ## Learning path

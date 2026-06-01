@@ -16,7 +16,7 @@ Replace or add a 3D model in the game.
 flowchart TD
     A["Blender<br/>+ io_mesh_qfmd"] -->|export .mdl| B["yourmodel.mdl"]
     B -->|copy to| C["quake/workshop/progs/"]
-    C -->|rename to replace existing| D["engine/ironwail -game workshop"]
+    C -->|rename to replace existing| D["engine/ironwail -basedir quake -game workshop"]
 ```
 
 ### Tutorial series  -  watch this first
@@ -40,7 +40,7 @@ flowchart TD
 4. Read `quake_palette.md` for skin coloring  -  pay attention to fullbright colors.
 5. The fastest way to see your model in-game: **rename it to replace an existing one**  -  e.g. `soldier.mdl` replaces every soldier.
 6. Drop it in `quake/workshop/progs/`.
-7. Launch: `engine/ironwail -game workshop`
+7. Launch: `engine/ironwail -basedir quake -game workshop`
 
 ---
 
@@ -55,7 +55,7 @@ Replace an existing surface texture in the game with your own artwork.
 ```mermaid
 flowchart TD
     A["image editor"] -->|PNG/TGA 24-bit, dims x16| B["quake/workshop/textures/"]
-    B -->|filename = texture name| C["engine/ironwail<br/>-game workshop +map anymap"]
+    B -->|filename = texture name| C["engine/ironwail<br/>-basedir quake -game workshop +map anymap"]
 ```
 
 ### Steps
@@ -66,7 +66,7 @@ flowchart TD
 4. Find the name of the texture you want to replace. Open any map in TrenchBroom  -  texture names are visible in the face properties panel.
 5. Name your file to match exactly (e.g. `city4_2.png` replaces the `city4_2` texture).
 6. Drop your file in `quake/workshop/textures/`.
-7. Launch: `engine/ironwail -game workshop +map anymap`
+7. Launch: `engine/ironwail -basedir quake -game workshop +map anymap`
 
 **Reference:** `making_textures.md`, `quake_palette.md`
 
@@ -82,6 +82,6 @@ Replace or add a sound effect.
 2. Record or create your sound in any audio editor and export as `.wav` matching those specs.
 3. Find the path of the sound you want to replace. The game sounds are in `quake-src/lq1/sound/`  -  browse that folder to find the right file and path.
 4. Create the matching folder under `quake/workshop/sound/` and drop your `.wav` there (e.g. `quake/workshop/sound/weapons/rocket.wav`).
-5. Launch: `engine/ironwail -game workshop`
+5. Launch: `engine/ironwail -basedir quake -game workshop`
 
 **Reference:** `making_sounds.md`
