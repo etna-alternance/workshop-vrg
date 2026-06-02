@@ -1,6 +1,8 @@
-# To clone it
+# To clone it **IMPORTANT!!!**
 
+```sh
 git pull --recurse-submodules
+```
 
 # Introduction
 
@@ -72,17 +74,15 @@ Modding (easier to build from something than from scratch):
 # Tools and Folder Structure
 
 prerequisites/      -> install before anything else  
-compiler/           -> for Gameplay (Win64, Linux-x64)  
+compiler/           -> for Gameplay (Win64, Linux-x64, MacOS-Universal)  
 asset_editor/       -> for Story (Win64, Linux-x64, MacOS-x64, MacOS-arm64)  
 map_editor/         -> for Presentation (Win64, Linux-x64, MacOS-x64, MacOS-arm64)  
-engine/             -> to run the game (Win64, Linux-x64)  
+engine/             -> to run the game (Win64, Linux-x64, MacOS-arm)  
 quake-src/          -> the game source code  
 quake/              -> the game files  
 guides/             -> helpful resources from each domain to help you during your modding journey :D  
     gameplay/       -> you'll learn Gameplay Programming  
     presentation/   -> you'll learn Mapping  
     story/          -> you'll learn how to make Assets  
-
-**Choose a domain compatible with your machine. Linux64 and Windows64 have the best tool coverage. macOS works but all tools are unsigned  -  follow `prerequisites/macos.md` carefully. Apple Silicon Macs need the arm64 TrenchBroom build; Ironwail is not provided for macOS.**
 
 To begin, start with the README.md inside a domain folder. Good Luck! :D
