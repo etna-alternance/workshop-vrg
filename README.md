@@ -2,6 +2,7 @@
 
 ```sh
 git pull --recurse-submodules
+git lfs fetch --all
 ```
 
 # Introduction
@@ -12,7 +13,7 @@ When developing a game alone, the learning curve is so steep that most people gi
 
 The reason is simple: it's a multi-domain project involving far more work than meets the eye.
 
-If you aren't afraid of hard work, you're thirsty for creativity and knowledge, and you're still attracted to game development after hearing what I've told you, then I'd like to welcome you among us Lunatics!
+If you aren't afraid of hard work, you're thirsty for creativity and knowledge, and you're still attracted to game development after hearing what I've told you, then I'd like to welcome you among us lunatics...
 
 # Workshop Objectives
 
