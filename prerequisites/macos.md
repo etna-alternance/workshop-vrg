@@ -23,13 +23,6 @@ Extract `tools/map_editor/ericw-tools-v0.18.1-Darwin.zip`. If the binaries are b
 xattr -cr path/to/ericw-tools/
 ```
 
-## Engine (vkQuake)
+## Ironwail
 
-Open `tools/engine/vkQuake-1.34.1.dmg`. The installer will ask for a destination folder — select the root of this repo. This places **vkQuake.app** directly inside it.
-
-Same Gatekeeper bypass applies — right-click → **Open** on first launch.
-
-Launch from the repo root:
-```bash
-./vkQuake.app/Contents/MacOS/vkQuake -basedir resources/quake -game workshop
-```
+Same Gatekeeper bypass applies. Right-click → Open on first launch.
