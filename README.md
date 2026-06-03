@@ -30,7 +30,7 @@ The goal isn't to make a masterpiece, nor is it to make a working mod (even if t
 
 So try to see what kind of possiblities this domain could offer you and that you could use to your advantage, even if you aren't interested in Game Development (which is perfectly understandable ~~skill issue~~).
 
-For those still interested despite everything I've told, completing this workshop in every domain will make you able to make any kind game from A to Z (these are foundations).
+For those still interested despite everything I've told, completing this workshop in every domain will make you'll learn the foundations of Game Development, and understand how to make any kind of game from A to Z.
 
 # How and Why?
 
