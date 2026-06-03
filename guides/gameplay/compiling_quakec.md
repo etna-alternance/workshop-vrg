@@ -26,6 +26,16 @@ fteqcc64.exe -src resources\quake-src\qcsrc\
 ./tools/compiler/ftetools_linux-x64/fteqcc64 -src resources/quake-src/qcsrc/
 ```
 
+## macOS
+
+Extract `tools/compiler/fteqcc_macOS_universal.zip`. Inside you'll find:
+
+- **`fteqcc`**  -  universal binary, works on both Apple Silicon and Intel.
+
+```bash
+./tools/compiler/fteqcc -src resources/quake-src/qcsrc/
+```
+
 ## Output
 
 After a successful compile, `progs.dat` is written directly to `resources/quake/workshop/progs.dat`. No copy step needed.

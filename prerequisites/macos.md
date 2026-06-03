@@ -23,6 +23,11 @@ Extract `tools/map_editor/ericw-tools-v0.18.1-Darwin.zip`. If the binaries are b
 xattr -cr path/to/ericw-tools/
 ```
 
-## Ironwail
+## Engine (vkQuake)
 
-Same Gatekeeper bypass applies. Right-click → Open on first launch.
+Open `tools/engine/vkQuake-1.34.1.dmg` and copy **vkQuake.app** to your Applications folder. Same Gatekeeper bypass applies — right-click → **Open** on first launch.
+
+Launch from the terminal the same way as Ironwail:
+```bash
+"/Applications/vkQuake.app/Contents/MacOS/vkQuake" -basedir resources/quake -game workshop
+```
