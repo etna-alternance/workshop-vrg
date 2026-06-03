@@ -1,3 +1,5 @@
+*"Game Design Trinity": It's mostly about Presentation, Story and Gameplay.*
+
 # Design
 
 - **Game Designer**:  
