@@ -1,9 +1,7 @@
-# Extracted tool directories (unpack from the bundled zips; not committed)
-engine/ironwail-*/
-compiler/ftetools_*/
-map_editor/TrenchBroom-*/
-map_editor/ericw-tools-*/
-asset_editor/blender-*/
+tools/engine/ironwail-*/
+tools/compiler/ftetools_*/
+tools/map_editor/TrenchBroom-*/
+tools/map_editor/ericw-tools-*/
+tools/asset_editor/blender-*/
 
-# All runtime-generated content (saves, configs, build outputs) — base game data already committed
-quake/
+tools/quake/
