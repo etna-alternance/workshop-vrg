@@ -9,7 +9,9 @@ Presentation is about **spatial design**: how spaces feel to move through, how e
 
 **What you'll make:** A playable map with rooms, lighting, and interactive entities.
 
-![Example Quake maps showing different visual styles achievable with brushes and lighting](../../quake-src/screenshots/maps_example.png)
+![](https://media.moddb.com/images/members/5/4671/4670468/profile/tears.gif)
+
+To see more what can achieve checkout this video! [The Beauty of Quake](https://youtu.be/eheKKQdhCs4?si=5Qgxk4_JZR_Q1vfL)
 
 ## Pipeline
 
