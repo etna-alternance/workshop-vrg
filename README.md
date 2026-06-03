@@ -50,11 +50,14 @@ Modding (it's easier to build from something than from scratch):
 
 ```
 prerequisites/      -> install before anything else  
+
 tools/
     compiler/       -> for Gameplay (Win64, Linux-x64, MacOS-Universal)  
     asset_editor/   -> for Story (Win64, Linux-x64, MacOS-x64, MacOS-arm64)  
     map_editor/     -> for Presentation (Win64, Linux-x64, MacOS-x64, MacOS-arm64)  
     engine/         -> to run the game (Win64, Linux-x64, MacOS-arm)  
+
+resources/
     quake-src/      -> the game source code  
     quake/          -> the game files  
 

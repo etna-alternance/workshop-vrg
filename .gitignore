@@ -1,7 +1,2 @@
-tools/engine/ironwail-*/
-tools/compiler/ftetools_*/
-tools/map_editor/TrenchBroom-*/
-tools/map_editor/ericw-tools-*/
-tools/asset_editor/blender-*/
-
-tools/quake/
+tools/
+resources/
