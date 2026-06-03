@@ -25,9 +25,11 @@ xattr -cr path/to/ericw-tools/
 
 ## Engine (vkQuake)
 
-Open `tools/engine/vkQuake-1.34.1.dmg` and copy **vkQuake.app** to your Applications folder. Same Gatekeeper bypass applies — right-click → **Open** on first launch.
+Open `tools/engine/vkQuake-1.34.1.dmg`. The installer will ask for a destination folder — select the root of this repo. This places **vkQuake.app** directly inside it.
 
-Launch from the terminal the same way as Ironwail:
+Same Gatekeeper bypass applies — right-click → **Open** on first launch.
+
+Launch from the repo root:
 ```bash
-"/Applications/vkQuake.app/Contents/MacOS/vkQuake" -basedir resources/quake -game workshop
+./vkQuake.app/Contents/MacOS/vkQuake -basedir resources/quake -game workshop
 ```
