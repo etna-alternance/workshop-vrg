@@ -11,7 +11,7 @@ Features: brush editing, entity placement, texture application, compile dialog (
 
 ## Map Compile Tools
 
-TrenchBroom does not bundle compile tools. The compile step (`.map` -> `.bsp`) requires **ericw-tools**, provided in `map_editor/ericw-tools-v0.18.1-*`.
+TrenchBroom does not bundle compile tools. The compile step (`.map` -> `.bsp`) requires **ericw-tools**, provided in `tools/map_editor/ericw-tools-v0.18.1-*`.
 
 Extract the archive for your platform, then configure TrenchBroom's compile dialog (**Run > Compile**) to point to the `qbsp`, `light`, and `vis` binaries inside it.
 

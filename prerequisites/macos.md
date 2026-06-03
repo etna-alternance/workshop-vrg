@@ -18,7 +18,7 @@ Two builds are provided — use the one matching your Mac:
 
 ## ericw-tools
 
-Extract `map_editor/ericw-tools-v0.18.1-Darwin.zip`. If the binaries are blocked, run:
+Extract `tools/map_editor/ericw-tools-v0.18.1-Darwin.zip`. If the binaries are blocked, run:
 ```bash
 xattr -cr path/to/ericw-tools/
 ```

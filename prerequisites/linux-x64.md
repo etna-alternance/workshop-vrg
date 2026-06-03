@@ -15,13 +15,13 @@ sudo dnf install qt6-qtbase
 TrenchBroom is distributed as an AppImage — make it executable and run it directly:
 
 ```bash
-chmod +x map_editor/TrenchBroom-Linux-x86_64-v2025.4-Release.AppImage
-./map_editor/TrenchBroom-Linux-x86_64-v2025.4-Release.AppImage
+chmod +x tools/map_editor/TrenchBroom-Linux-x86_64-v2025.4-Release.AppImage
+./tools/map_editor/TrenchBroom-Linux-x86_64-v2025.4-Release.AppImage
 ```
 
 ## ericw-tools
 
-No special dependencies. Extract `map_editor/ericw-tools-v0.18.1-Linux.zip` and run the binaries directly.
+No special dependencies. Extract `tools/map_editor/ericw-tools-v0.18.1-Linux.zip` and run the binaries directly.
 
 ## Ironwail
 

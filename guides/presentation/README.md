@@ -17,21 +17,21 @@ To see more what can achieve checkout this video! [The Beauty of Quake](https://
 
 ```mermaid
 flowchart TD
-    A["map_editor/TrenchBroom"] -->|save| B["yourmap.map"]
+    A["tools/map_editor/TrenchBroom"] -->|save| B["yourmap.map"]
     B -->|QBSP + Light + Vis| C["yourmap.bsp"]
-    C -->|copy to| D["quake/workshop/maps/"]
-    D -->|launch| E["engine/ironwail<br/>-basedir quake -game workshop +map yourmap"]
+    C -->|copy to| D["resources/quake/workshop/maps/"]
+    D -->|launch| E["tools/engine/ironwail<br/>-basedir resources/quake -game workshop +map yourmap"]
 ```
 
 ## Start here  -  your first map
 
 Before anything else, get a working map in-game:
 
-1. Open TrenchBroom. In **View > Preferences**, set your Quake path to the `quake/` folder  -  this loads textures and entity models automatically.
+1. Open TrenchBroom. In **View > Preferences**, set your Quake path to the `resources/quake/` folder  -  this loads textures and entity models automatically.
 2. Build one sealed room  -  6 brushes (floor, ceiling, 4 walls). Make it roughly 256x256x128 units.
 3. Place an `info_player_start` entity inside it.
 4. Place one `light` entity. Set key `light` = `200`.
-5. Compile with QBSP only, copy the `.bsp` to `quake/workshop/maps/`, launch: `engine/ironwail -basedir quake -game workshop +map yourmap`
+5. Compile with QBSP only, copy the `.bsp` to `resources/quake/workshop/maps/`, launch: `tools/engine/ironwail -basedir resources/quake -game workshop +map yourmap`
 6. You're in. Now iterate.
 
 ## Learning path
@@ -109,11 +109,11 @@ We also need [compilers](https://quakewiki.org/wiki/Map_compiling "Map compiling
 
 Everything you need is already in the workshop folder:
 
-**Editing Software**: `map_editor/TrenchBroom`
+**Editing Software**: `tools/map_editor/TrenchBroom`
 
 **Textures**: TrenchBroom will load Quake's textures automatically once you set your Quake path in **View > Preferences**  -  no separate WAD download needed.
 
-**Map compile tools**: ericw-tools (QBSP, Light, Vis)  -  provided in `map_editor/`. Extract for your platform, then configure TrenchBroom's compile dialog (**Run > Compile**). See `mapping_tools.md`.
+**Map compile tools**: ericw-tools (QBSP, Light, Vis)  -  provided in `tools/map_editor/`. Extract for your platform, then configure TrenchBroom's compile dialog (**Run > Compile**). See `mapping_tools.md`.
 
 ## Putting it together
 
@@ -199,7 +199,7 @@ Let's also make sure everyone knows how great Quake is by telling them. To do th
 
 ## Time to compile!
 
-Save your map with **File > Save** or **Ctrl-S**. Open TrenchBroom's compile dialog: **Run > Compile**. You'll need ericw-tools configured here  -  add a compile profile with three tasks in order: `qbsp`, `light`, `vis`, each pointing to the respective ericw-tools executable. Set the output path to `quake/workshop/maps/`.
+Save your map with **File > Save** or **Ctrl-S**. Open TrenchBroom's compile dialog: **Run > Compile**. You'll need ericw-tools configured here  -  add a compile profile with three tasks in order: `qbsp`, `light`, `vis`, each pointing to the respective ericw-tools executable. Set the output path to `resources/quake/workshop/maps/`.
 
 Once configured, you can run any subset of the tools: run only QBSP for a quick geometry check, add Light when you want to see shadows, run full QBSP + Light + Vis for a final build.
 
@@ -209,7 +209,7 @@ Once configured, you can run any subset of the tools: run only QBSP for a quick 
 
 Our map in game!
 
-In TrenchBroom's compile dialog (**Run > Compile**), run only the QBSP task first. Once it finishes, copy the `.bsp` to `quake/workshop/maps/` and launch `engine/ironwail -basedir quake -game workshop +map yourmap`.
+In TrenchBroom's compile dialog (**Run > Compile**), run only the QBSP task first. Once it finishes, copy the `.bsp` to `resources/quake/workshop/maps/` and launch `tools/engine/ironwail -basedir resources/quake -game workshop +map yourmap`.
 
 If you've been paying attention, you shouldn't be surprised to see that your map is a fully bright box with no shadowing. This is because we have only run QBSP on our.map. QBSP turns all our brushes into polygons which are nicely organized for Quake into a format called.bsp, in a process called [Binary Space Partitioning](http://en.wikipedia.org/wiki/Binary_space_partitioning).
 
