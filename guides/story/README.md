@@ -2,7 +2,7 @@
 
 Story covers everything that goes into the look and sound of the game: models, textures, sprites, sounds. Pick one path below and follow it through to seeing your asset in-game.
 
-![LibreQuake weapon models - what a weapon mod can produce](../../resources/quake-src/screenshots/weapons_example.webp)
+![LibreQuake weapon models - what a weapon mod can produce](https://cdna.artstation.com/p/assets/images/images/049/834/270/original/leonid-cherepanov-3333333.gif?1653425157)
 
 ---
 
