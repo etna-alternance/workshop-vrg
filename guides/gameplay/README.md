@@ -2,7 +2,7 @@
 
 **What you'll make:** A working mod that changes how weapons, monsters, or items behave.
 
-![](../../quake-src/screenshots/quake-title.webp)
+![](https://i.imgur.com/aGAQvqE.gif)
 
 ## Pipeline
 
