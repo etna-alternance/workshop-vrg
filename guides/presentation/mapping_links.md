@@ -3,6 +3,10 @@ title: Mapping links - Quake Wiki
 source: https://quakewiki.org/wiki/Mapping_links
 ---
 
+### Bal's Quake Mapping Tips & Tricks
+
+It's one of the greatest mappers of the community, he made a [post](https://www.slipseer.com/index.php?threads/bals-quake-mapping-tips-tricks.100/) on Slipseer forum.
+
 ### Func\_Msgboard
 
 [Func\_Msgboard](http://www.celephais.net/board/) is the main level design forum/news site for Quake.
