@@ -38,12 +38,12 @@ Modding (it's easier to build from something than from scratch):
 - Solid and prebuilt foundation in every domains
 - Students can focus on a particular aspect of GD
 
-# Prerequisites
+# Supported Platforms & Prerequisites
 
 **Install this before doing anything else.** Follow the guide for your platform:
 
 - [Windows 64-bit](prerequisites/win64.md)
-- [Linux x86-64](prerequisites/linux-x64.md)
+- [Linux x64](prerequisites/linux-x64.md)
 - [macOS](prerequisites/macos.md)
 
 # Tools and Folder Structure
@@ -52,10 +52,10 @@ Modding (it's easier to build from something than from scratch):
 prerequisites/      -> install before anything else  
 
 tools/
-    compiler/       -> for Gameplay (Win64, Linux-x64, MacOS-Universal)  
-    asset_editor/   -> for Story (Win64, Linux-x64, MacOS-x64, MacOS-arm64)  
-    map_editor/     -> for Presentation (Win64, Linux-x64, MacOS-x64, MacOS-arm64)  
-    engine/         -> to run the game (Win64, Linux-x64, MacOS-arm)  
+    compiler/       -> for Gameplay
+    asset_editor/   -> for Story
+    map_editor/     -> for Presentation
+    engine/         -> to run the game
 
 resources/
     quake-src/      -> the game source code  
