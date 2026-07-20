@@ -16,7 +16,6 @@ The reason is simple: it's a multi-domain project involving far more work than m
 If you aren't afraid of hard work, you're thirsty for creativity and knowledge, and you're still attracted to game development after hearing what I've told you, then I'd like to welcome you among us lunatics...
 
 # Workshop Objectives
-*(all in 3h30... ;-;)*
 
 - Learn the existence of the different domains in GD (Game Development) -> Checkout [roles](guides/roles.md)
 - Dive into specific a specific domain of GD -> [Gameplay](guides/gameplay/README.md), [Presentation](guides/presentation/README.md), [Story](guides/story/README.md).
